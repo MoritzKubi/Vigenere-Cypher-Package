@@ -6,7 +6,6 @@ message = inputs[1]
 key = inputs[2]
 methode = inputs[3]
 
-println("message: $message ; key: $key ; methode: $methode")
 
 newKEy = fitKey(message, key)
 print(newKEy)
