@@ -1,0 +1,10 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.13.3"
+manifest_format = "2.1"
+project_hash = "fbf2c360db2093fb0612e2e2d65a51c8f0c22b80"
+
+[[deps.VigenereCypher]]
+path = "."
+uuid = "ff09bd80-47b4-4623-9f52-a32cb4992f05"
+version = "0.1.0"
