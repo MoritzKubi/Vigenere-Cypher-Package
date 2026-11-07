@@ -21,7 +21,7 @@ module VigCyFuncs
             
             if isletter(i)
 
-                push!(fittedKey, key[j])
+                push!(fittedKey, lowercase(key[j]))
 
                 if j == length(key)
                     j = 1
@@ -40,15 +40,15 @@ module VigCyFuncs
     end
 
     """
-        keepCaps(new_pos, cap_bool)
+        keepCaps(pos, cap_bool)
 
     Project capitalization from original message onto encrypted/decrypted message.
     """
-    function keepCaps(new_pos, cap_bool)
+    function keepCaps(pos, cap_bool)
         if cap_bool
-            encrypted_char = uppercase(abc_reverse[new_pos])
+            encrypted_char = uppercase(abc_reverse[pos])
         else
-            encrypted_char = abc_reverse[new_pos]
+            encrypted_char = abc_reverse[pos]
         end
 
         return encrypted_char
