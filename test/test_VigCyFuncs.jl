@@ -13,7 +13,7 @@ using Test
     
     @testset "fitKey uppercase and symbols handling in key" begin
         @test VigCyFuncs.fitKey(['a','b','c','d'],['K','e','Y']) == ['k','e','y','k']
-        @test_throws VigCyFuncs.fitKey(['a','b','c'],['k','!','y'])
+        @test_throws ArgumentError VigCyFuncs.fitKey(['a','b','c'],['k','!','y'])
     end
 end
 
@@ -39,18 +39,18 @@ end
     end
 end
 
-"""
+
 @testset "VigCyFuncs test decode" begin
     
     @testset "decode basic" begin
-        @test VigCyFuncs.decode() == []
+        @test VigCyFuncs.decode(['k','f','a','n','i'],['k','e','y','k','e']) == ['a','b','c','d','e']
     end
 
     @testset "decode uppercase handling" begin
-        @test VigCyFuncs.decode() == []
+        @test VigCyFuncs.decode(['K','f','A','n','I'],['k','e','y','k','e']) == ['A','b','C','d','E']
     end
 
     @testset "decode spaces and symbols handling" begin
-        @test VigCyFuncs.decode() == []
+        @test VigCyFuncs.decode(['k',' ','a','!','i'],['k','e','y','k','e']) == ['a',' ','c','!','e']
     end
-end"""
+end

@@ -16,12 +16,8 @@ module VigCyFuncs
     function fitKey(message, key)
         fittedKey = []
 
-        for k in key
-            try
-                isletter(k)
-            catch
-                println("VALUE ERROR: Key can only contain letters")
-            end
+        if !all(isletter, key)
+            throw(ArgumentError("Key can only contain letters"))
         end
 
         j = 1
