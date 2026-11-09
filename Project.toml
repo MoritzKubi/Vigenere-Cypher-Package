@@ -1,7 +1,7 @@
 name = "VigenereCypher"
 uuid = "ff09bd80-47b4-4623-9f52-a32cb4992f05"
 version = "0.1.0"
-authors = ["paulr "]
+authors = ["Moritz Kubitschek "]
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
