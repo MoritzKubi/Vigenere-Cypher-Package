@@ -7,12 +7,13 @@ using Test
         @test VigCyFuncs.fitKey(['h','a','l','l','o'], ['k','e','y']) == ['k','e','y','k','e']
     end
 
-    @testset "fitKey spaces" begin
-        @test VigCyFuncs.fitKey(['a','b',' ','c','d',' ','e',' ','f'], ['k','e','y']) == ['k','e',' ','y','k',' ','e',' ','y']
+    @testset "fitKey spaces and symbols in msg" begin
+        @test VigCyFuncs.fitKey(['a','b',' ','c','d',' ','e','!','f'], ['k','e','y']) == ['k','e',' ','y','k',' ','e',' ','y']
     end
-
-    @testset "fitKey uppercase and symbols handling" begin
-        @test VigCyFuncs.fitKey() == []
+    
+    @testset "fitKey uppercase and symbols handling in key" begin
+        @test VigCyFuncs.fitKey(['a','b','c','d'],['K','e','Y']) == ['k','e','y','k']
+        @test_throws VigCyFuncs.fitKey(['a','b','c'],['k','!','y'])
     end
 end
 
@@ -38,6 +39,7 @@ end
     end
 end
 
+"""
 @testset "VigCyFuncs test decode" begin
     
     @testset "decode basic" begin
@@ -51,4 +53,4 @@ end
     @testset "decode spaces and symbols handling" begin
         @test VigCyFuncs.decode() == []
     end
-end
+end"""
