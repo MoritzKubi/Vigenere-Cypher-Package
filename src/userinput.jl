@@ -6,6 +6,18 @@ module UserInput
         userInput()
 
     Gather nescecary user input (message, encryption/decryption key, methode).
+
+    Only allow accepted user input:
+        Key must contain alphabetic characters only (no spaces)
+        Methode can only be e...encode, d...decode
+        Message can contain any character
+    
+    #Arguments
+    -io::IO Input stream defaults to stdin (standard console input). 
+            Can be replaced with IOBuffer for testing.
+    
+    #Returns
+    -output::Vector{input::Vector{Char}, key::Vector{Char}, mthd::Char}
     """
     function userInput(io=stdin)
         input = []
@@ -66,6 +78,12 @@ module UserInput
         mkString(message)
 
     Convert list of characters into a single string.
+
+    #Arguments
+    -message::Vector{Char}
+
+    #Returns
+    -messageString::String
     """
     function mkString(message)
         messageString = join(message)

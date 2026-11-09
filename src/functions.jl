@@ -9,9 +9,17 @@ module VigCyFuncs
     """
         fitKey(message, key)
 
-    Line up the encryption key with the message.
+    Aligne encryption/decryption key with the message by repeating the key for each letter in the message.
     
-    Skipp all spaces and special characters.
+    Non alphabetic characters in message show up in fittedKey as empty spaces, all letters are converted to 
+    lower case. Non alphabetic characters in key throw an ArgumentError.
+
+    #Arguments
+    -message::Vector{Char}
+    -key::Vector{Char}
+
+    #Returns
+    -fittedKey::Vector{Char}
     """
     function fitKey(message, key)
         fittedKey = []
@@ -46,7 +54,14 @@ module VigCyFuncs
     """
         keepCaps(pos, cap_bool)
 
-    Project capitalization from original message onto encrypted/decrypted message.
+    Preserve capitalization of encrypted character in reference to capitalization in original message.
+
+    #Arguments
+    -pos::Integer Index position of the encrypted "new" character in abc_reverse
+    -cap_bool::Bool Determins capitalization (uppercase...true)
+
+    #Returns
+    -encrypted_char::Char
     """
     function keepCaps(pos, cap_bool)
         if cap_bool
@@ -63,6 +78,15 @@ module VigCyFuncs
         encode(message, key)
 
     Encrypt a given message via vigenere cypher with a given encryption key.
+
+    Preserve symbols, punctuation, spaces and uppercase letters.
+
+    #Arguments
+    -message::Vector{Char}
+    -key::Vector{Char}
+
+    #Returns
+    -message_encoded::Vector{Char}
     """
     function encode(message, key)
         message_encoded = []
@@ -102,6 +126,15 @@ module VigCyFuncs
         decode(message, key)
 
     Decode a message encrypted via the vigenere cypher with a known key.
+
+    Preserve symbols, punctuation, spaces and uppercase letters.
+
+    #Arguments
+    -message::Vector{Char}
+    -key::Vector{Char}
+
+    #Returns
+    -message_decoded::Vector{Char}
     """
     function decode(message, key)
         message_decoded = []

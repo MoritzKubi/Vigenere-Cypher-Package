@@ -1,6 +1,11 @@
 using VigenereCypher.UserInput, VigenereCypher.VigCyFuncs
 
-function main()
+"""
+    main_example()
+
+Run userinput in REPL allowing to encrypt/decrypt a custom message for a custom key
+"""
+function main_example()
     inputs = userInput()
     message = inputs[1]
     key = inputs[2]
@@ -18,4 +23,4 @@ function main()
     end
 end
 
-main()
+main_example()
