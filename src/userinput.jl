@@ -7,7 +7,7 @@ module UserInput
 
     Gather nescecary user input (message, encryption/decryption key, methode).
     """
-    function userInput()
+    function userInput(io=stdin)
         input = []
         key = []
 
@@ -16,31 +16,31 @@ module UserInput
         read_key::String = ""
 
         while true
-            println("Chose a methode: \n encode: [e]\n decode: [d]\n quit:   [q]")
+            println("\n\nChose a methode: \n encode: [e]\n decode: [d]\n")
             
-            inp = readline()
+            inp = readline(io)
 
             if length(inp) == 1
                 mthd = only(inp)
             end
 
-            if mthd in ['e', 'd', 'q']        #check if mode is correct
+            if mthd in ['e', 'd']        #check if mode is correct
                 break
             else
-                println("VALUE ERROR: Input must be Char: [e], [d] or [q]")
+                println("VALUE ERROR: Input must be Char: [e], [d]")
             end
             
         end
 
         while true
             println("Enter a message: ")
-            read_input = readline()
+            read_input = readline(io)
             break
         end
 
         while true
             println("Enter an encryption key: ")
-            read_key = readline()
+            read_key = readline(io)
             
             if all(isletter, read_key)
                 break
